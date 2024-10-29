@@ -41,7 +41,7 @@ const ProductsGroupList: FC<Props> = ({
             id={product.id}
             name={product.name}
             imageUrl={product.imageUrl}
-            price={product.items[0].price}
+            price={product.items[0]?.price}
           />
         ))}
       </div>
