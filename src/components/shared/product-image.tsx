@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { FC } from "react";
 
 interface productImageProps {
@@ -7,7 +7,7 @@ interface productImageProps {
   size: number;
 }
 
-const ProductImage: FC<productImageProps> = ({ imageUrl, size, className }) => {
+const PizzaImage: FC<productImageProps> = ({ imageUrl, size, className }) => {
   return (
     <div
       className={cn(
@@ -34,4 +34,4 @@ const ProductImage: FC<productImageProps> = ({ imageUrl, size, className }) => {
   );
 };
 
-export default ProductImage;
+export default PizzaImage;

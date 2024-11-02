@@ -4,11 +4,9 @@ import { Title } from "./title";
 import { Input } from "../ui/input";
 import { RangeSlider } from "./range-slider";
 import CheckboxFiltersGroup from "./checkbox-filters-group";
-import qs from "qs";
-import { useRouter } from "next/navigation";
-import { useFilters } from "@/hooks/use-filters";
-import { useIngredients } from "@/hooks/use-ingredients";
-import { useQueryFilters } from "@/hooks/use-query-filters";
+import { useIngredients } from "@/shared/hooks/use-ingredients";
+import { useFilters } from "@/shared/hooks/use-filters";
+import { useQueryFilters } from "@/shared/hooks/use-query-filters";
 
 interface filtersProps {
   className?: string;

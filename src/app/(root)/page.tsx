@@ -3,7 +3,7 @@ import Filters from "@/components/shared/filters";
 import ProductsGroupList from "@/components/shared/products-group-list";
 import { Title } from "@/components/shared/title";
 import TopBar from "@/components/shared/top-bar";
-import { prisma } from "../../prisma/prisma-client";
+import { prisma } from "@/prisma/prisma-client";
 
 export default async function Home() {
   const categories = await prisma.category.findMany({
