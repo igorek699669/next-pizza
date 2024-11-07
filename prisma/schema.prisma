@@ -23,7 +23,7 @@ model User {
   verificationCode VerificationCode?
   cart             Cart?
   cartId           Int?
-  verified         DateTime
+  verified         DateTime?
 }
 
 model Product {
@@ -120,7 +120,7 @@ model Order {
   address  String
   email    String
   phone    String
-  comment  String
+  comment  String?
 }
 
 enum OrderStatus {

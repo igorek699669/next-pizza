@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "prisma:push": "npx prisma db push",
+    "prisma:push": "prisma db push",
     "prisma:studio": "npx prisma studio",
     "prisma:seed": "npx prisma  db seed"
   },
@@ -16,6 +16,7 @@
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.1",
     "@prisma/client": "^5.21.1",
     "@radix-ui/react-checkbox": "^1.1.2",
     "@radix-ui/react-dialog": "^1.1.2",
@@ -33,15 +34,22 @@
     "lucide": "^0.453.0",
     "lucide-react": "^0.453.0",
     "next": "14.2.3",
+    "next-auth": "^4.24.10",
+    "nextjs-toploader": "^3.7.15",
     "prisma": "^5.21.1",
     "qs": "^6.13.0",
     "react": "^18",
+    "react-dadata": "^2.23.3",
     "react-dom": "^18",
+    "react-hook-form": "^7.53.1",
+    "react-hot-toast": "^2.4.1",
     "react-use": "^17.5.1",
+    "resend": "^4.0.1-alpha.0",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
     "ts-node": "^10.9.2",
     "vaul": "^1.1.0",
+    "zod": "^3.23.8",
     "zustand": "^5.0.0"
   },
   "devDependencies": {

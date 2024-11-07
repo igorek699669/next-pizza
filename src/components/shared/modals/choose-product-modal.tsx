@@ -1,37 +1,20 @@
 "use client";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { cn } from "@/shared/lib/utils";
-import { useRouter } from "next/navigation";
-import { ChooseProductForm } from "../choose-product-form";
-import { ProductWithRelations } from "@/@types/prisma";
-import { ChoosePizzaForm } from "../choose-pizza-form";
-import { useCartStore } from "@/shared/store/cart";
 
-interface ChooseProductModalProps {
+import { cn } from "@/shared/lib/utils";
+import React from "react";
+import { useRouter } from "next/navigation";
+import { ProductWithRelations } from "@/@types/prisma";
+import { ProductForm } from "../product-form";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+
+interface Props {
   product: ProductWithRelations;
   className?: string;
 }
 
-export const ChooseProductModal: React.FC<ChooseProductModalProps> = ({
-  product,
-  className,
-}) => {
+export const ChooseProductModal: React.FC<Props> = ({ product, className }) => {
   const router = useRouter();
-  const firstItem = product.items[0];
-  const isPizzaForm = Boolean(firstItem.pizzaType);
-  const addCartItem = useCartStore((state) => state.addCartItem);
-  const onAddProduct = () => {
-    addCartItem({
-      productItemId: firstItem.id,
-    });
-    router.back();
-  };
-  const onAddPizza = (productItemId: number, ingredients: number[]) => {
-    addCartItem({
-      productItemId,
-      ingredients,
-    });
-  };
+
   return (
     <Dialog open={Boolean(product)} onOpenChange={() => router.back()}>
       <DialogContent
@@ -40,24 +23,8 @@ export const ChooseProductModal: React.FC<ChooseProductModalProps> = ({
           className,
         )}
       >
-        {isPizzaForm ? (
-          <ChoosePizzaForm
-            ingredients={product.ingridients}
-            imageUrl={product.imageUrl}
-            name={product.name}
-            items={product.items}
-            onSubmit={onAddPizza}
-          />
-        ) : (
-          <ChooseProductForm
-            imageUrl={product.imageUrl}
-            name={product.name}
-            price={0}
-            onSubmit={onAddProduct}
-          />
-        )}
+        <ProductForm product={product} onSubmit={() => router.back()} />
       </DialogContent>
     </Dialog>
   );
 };
-export default ChooseProductModal;

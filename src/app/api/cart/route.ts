@@ -1,4 +1,4 @@
-import { prisma } from "@/prisma/prisma-client";
+import { prisma } from "../../../../prisma/prisma-client";
 import { findOrCreateCart } from "@/shared/lib/find-or-create-cart";
 import { updateCartTotalAmount } from "@/shared/lib/update-cart-total-amount";
 import { CreateCartItemValues } from "@/shared/services/dto/cart.dto";
