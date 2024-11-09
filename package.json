@@ -9,6 +9,7 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "prisma:push": "prisma db push",
+    "prisma:generate": "prisma generate --schema ./prisma/schema.prisma",
     "prisma:studio": "npx prisma studio",
     "prisma:seed": "npx prisma  db seed"
   },

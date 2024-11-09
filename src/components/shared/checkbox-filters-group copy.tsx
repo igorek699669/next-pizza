@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { FilterChecboxProps, FilterCheckbox } from './filter-checkbox';
-import { Input } from '../ui/input';
-import { Skeleton } from '../ui';
+import React from "react";
+import { FilterChecboxProps, FilterCheckbox } from "./filter-checkbox";
+import { Input } from "../ui/input";
+import { Skeleton } from "../ui/skeleton";
 
 type Item = FilterChecboxProps;
 
@@ -26,7 +26,7 @@ export const CheckboxFiltersGroup: React.FC<Props> = ({
   items,
   defaultItems,
   limit = 5,
-  searchInputPlaceholder = 'Поиск...',
+  searchInputPlaceholder = "Поиск...",
   className,
   loading,
   onClickCheckbox,
@@ -34,7 +34,7 @@ export const CheckboxFiltersGroup: React.FC<Props> = ({
   name,
 }) => {
   const [showAll, setShowAll] = React.useState(false);
-  const [searchValue, setSearchValue] = React.useState('');
+  const [searchValue, setSearchValue] = React.useState("");
 
   const onChangeSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
@@ -47,7 +47,9 @@ export const CheckboxFiltersGroup: React.FC<Props> = ({
 
         {...Array(limit)
           .fill(0)
-          .map((_, index) => <Skeleton key={index} className="h-6 mb-4 rounded-[8px]" />)}
+          .map((_, index) => (
+            <Skeleton key={index} className="h-6 mb-4 rounded-[8px]" />
+          ))}
 
         <Skeleton className="w-28 h-6 mb-4 rounded-[8px]" />
       </div>
@@ -55,7 +57,9 @@ export const CheckboxFiltersGroup: React.FC<Props> = ({
   }
 
   const list = showAll
-    ? items.filter((item) => item.text.toLowerCase().includes(searchValue.toLocaleLowerCase()))
+    ? items.filter((item) =>
+        item.text.toLowerCase().includes(searchValue.toLocaleLowerCase()),
+      )
     : (defaultItems || items).slice(0, limit);
 
   return (
@@ -87,9 +91,12 @@ export const CheckboxFiltersGroup: React.FC<Props> = ({
       </div>
 
       {items.length > limit && (
-        <div className={showAll ? 'border-t border-t-neutral-100 mt-4' : ''}>
-          <button onClick={() => setShowAll(!showAll)} className="text-primary mt-3">
-            {showAll ? 'Скрыть' : '+ Показать все'}
+        <div className={showAll ? "border-t border-t-neutral-100 mt-4" : ""}>
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="text-primary mt-3"
+          >
+            {showAll ? "Скрыть" : "+ Показать все"}
           </button>
         </div>
       )}
