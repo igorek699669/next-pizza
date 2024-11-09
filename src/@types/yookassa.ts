@@ -9,7 +9,7 @@ export interface PaymentData {
   test: boolean;
   paid: boolean;
   refundable: boolean;
-  metadata?: Metadata;
+  metadata: Metadata;
 }
 
 export interface Amount {
