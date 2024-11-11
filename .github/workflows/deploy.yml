@@ -41,7 +41,7 @@ jobs:
 
       - name: SSH and pull the new image and restart
         run: |
-          ssh -o StrictHostKeyChecking=no -i ${{ secrets.VPS_SSH_KEY }} ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} <<EOF
+          ssh  ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} -i ${{ secrets.VPS_SSH_KEY }} -o StrictHostKeyChecking=no <<EOF
             docker pull ghcr.io/igorek699669/next-pizza:latest
             docker run -d -p 3000:3000 next-pizza:latest
           EOF
