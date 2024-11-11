@@ -46,4 +46,4 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           port: ${{ secrets.VPS_PORT }}
           password: ${{ secrets.VPS_PASSWORD }}
-          script: docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.PAT }} && docker pull ghcr.io/igorek699669/next-pizza:latest && docker run -d -p 3000:3000 next-pizza:latest
+          script: docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.PAT }} && docker pull ghcr.io/${{ github.actor }}/next-pizza:latest && docker run -d -p 3000:3000 ghcr.io/${{ github.actor }}/next-pizza:latest
