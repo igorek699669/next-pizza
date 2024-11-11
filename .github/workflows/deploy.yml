@@ -3,7 +3,7 @@ name: CI/CD
 on:
   push:
     branches:
-      - main # или та ветка, которую ты используешь
+      - master # или та ветка, которую ты используешь
 
 jobs:
   build-and-push:
