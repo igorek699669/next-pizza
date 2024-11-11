@@ -37,13 +37,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Install SSH Key
-        uses: shimataro/ssh-key-action@v2
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
         with:
-          key: ${{ secrets.VPS_SSH_KEY }}
-          known_hosts: "just-a-placeholder-so-we-dont-get-errors"
+          ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
       - name: SSH and pull the new image and restart
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} <<EOF
