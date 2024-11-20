@@ -5,6 +5,7 @@ import { RequiredSymbol } from "../required-symbol";
 import { ClearButton } from "../clear-button";
 import { ErrorText } from "../error-text";
 import { useFormContext } from "react-hook-form";
+import React from "react";
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;

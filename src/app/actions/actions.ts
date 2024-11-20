@@ -4,7 +4,7 @@ import { CheckoutFormValues } from "@/shared/constants/checkout-form-schema";
 import { OrderStatus, Prisma } from "@prisma/client";
 import { hashSync } from "bcrypt";
 import { cookies } from "next/headers";
-import { prisma } from "../../prisma/prisma-client";
+import { prisma } from "../../../prisma/prisma-client";
 import { sendEmail } from "@/shared/lib/send-email";
 import { PayOrderTemplate } from "@/components/shared/email-temapltes";
 import { VerificationUserTemplate } from "@/components/shared/email-temapltes/verification-user";
@@ -113,7 +113,11 @@ export async function createOrder(data: CheckoutFormValues) {
     );
 
     return paymentUrl;
-  } catch (err) {
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      throw new Error(err.message as string);
+    }
+
     console.log("[CreateOrder] Server error", err);
   }
 }

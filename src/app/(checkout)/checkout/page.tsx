@@ -18,7 +18,7 @@ import {
   checkoutFormSchema,
   CheckoutFormValues,
 } from "@/shared/constants/checkout-form-schema";
-import { createOrder } from "@/app/actions";
+import { createOrder } from "@/app/actions/actions";
 
 export default function CheckoutPage() {
   const [submitting, setSubmitting] = React.useState(false);
